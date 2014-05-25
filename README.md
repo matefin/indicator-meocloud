@@ -34,8 +34,10 @@ Installation:
 Download the ZIP file.
 To install the indicator script, and also MEOCloud for Linux:
 in a console (terminal):
-- unpack the ZIP file
-- enter indicator-meocloud directory
+- go to the release section (top oh the page) and download the icons file
+- download and unpack the ZIP file
+- enter the created indicator-meocloud-master directory
+- unpack the icons file in this directory
 - run:
 bash install-indicator.sh
 
