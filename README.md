@@ -22,7 +22,7 @@ You can access it from Linux, MacOS and Windows.
 
 This python script allows you to integrate MEOCloud nicely within Ubuntu Unity interface.
 It gives you realtime visual feedback about MEOCloud status (syncing, etc.) in Unity indicators bar
-and allows you to pause/resume theinstall-indicator.sh service.
+and allows you to pause/resume the service.
 It works with Ubuntu 14.04 Trusty Tahr and should work with other versions.
 
 
