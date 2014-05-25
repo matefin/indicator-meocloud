@@ -78,7 +78,7 @@ class IndicatorMEO:
     self.item10 = gtk.MenuItem()
     self.item10.set_label("---")
     self.menu.append(self.item10)
-    self.item10.				hide()
+    self.item10.hide()
    
     # separateur
     self.sep1 = gtk.SeparatorMenuItem()
