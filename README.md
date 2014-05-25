@@ -16,8 +16,8 @@ you will get 512 MB free space more (and so will I).
 
 Description:
 ------------
-MEOCloud is a very reliable, fast and free cloud service offerd by Portugal Telecom
-It gives you 16 GB of free storage.
+MEOCloud is a very reliable, fast and free cloud service offered by Portugal Telecom.
+It gives you 16 GB of free storage. You can upgrade up to 32 GB with the referral program.
 You can acces it from Linux, MacOS and Windows.
 
 This python script allows you to integrate MEOCloud nicely within Ubuntu Unity interface.
