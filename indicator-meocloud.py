@@ -5,7 +5,7 @@
 # indicateur pour meocloud
 #	demarre automatiquement meocloud
 #	affiche marche/arret/synchronisation en cours
-# MTT
+# matefin
 # 2014-05-22
 # v0.10.28m
 
