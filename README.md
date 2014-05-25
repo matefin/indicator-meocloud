@@ -5,7 +5,7 @@ Ubuntu Unity indicator for MEOCloud (python)
 
 REFERRAL PROGRAM:
 -----------------
-If you wan to register for a free MEOCloud account, please use the following referral URL:
+If you want to register for a free MEOCloud account, please use the following referral URL:
 
 https://meocloud.pt/?referral_code=ro7I69rM8TJZQgzUs8CPBZR5I
 
