@@ -9,7 +9,7 @@ If you want to register for a free MEOCloud account, please use the following re
 
 https://meocloud.pt/?referral_code=ro7I69rM8TJZQgzUs8CPBZR5I
 
-you will get 512 MB free space more (ans so do I).
+you will get 512 MB free space more (and so will I).
 
 
 Description:
