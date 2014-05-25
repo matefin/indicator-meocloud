@@ -26,6 +26,7 @@ It works with Ubuntu 14.04 Trusty Tahr and should work with other versions.
 
 Installation:
 -------------
+To install the indicator script, and also MEOCloud for Linux:
 in a console (terminal):
 - unpack the tarball
 - enter indicator-meocloud directory
