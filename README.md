@@ -1,7 +1,9 @@
 indicator-meocloud
 ==================
 
-Ubuntu Unity indicator for MEOCloud free web storage (python)
+This is a Ubuntu Unity indicator for MEOCloud free web storage (coded in python)
+
+MEOCloud is a very godd replacement for Ubuntu One (albeit the available storage space is limited to 32 GB).
 
 REFERRAL PROGRAM:
 -----------------
