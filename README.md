@@ -6,7 +6,7 @@ This is a Ubuntu Unity indicator for MEOCloud free web storage (coded in python)
 It is placed under the GPL v2 license conditions.
 
 
-MEOCloud is a very godd replacement for Ubuntu One (albeit the available storage space is limited to 32 GB).
+MEOCloud is a very good replacement for Ubuntu One (albeit the available storage space is limited to 32 GB).
 
 REFERRAL PROGRAM:
 -----------------
