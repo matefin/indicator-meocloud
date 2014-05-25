@@ -1,7 +1,7 @@
 indicator-meocloud
 ==================
 
-Ubuntu Unity indicator for MEOCloud (python)
+Ubuntu Unity indicator for MEOCloud free web storage (python)
 
 REFERRAL PROGRAM:
 -----------------
