@@ -3,7 +3,7 @@ indicator-meocloud
 
 This is a Ubuntu Unity indicator for MEOCloud free web storage (coded in python)
 
-It is placed under the GPL v2 license conditions.
+It is placed under the GPL v2 license agreement.
 
 
 MEOCloud is a very good replacement for Ubuntu One (albeit the available storage space is limited to 32 GB).
@@ -28,6 +28,11 @@ It gives you realtime visual feedback about MEOCloud status (syncing, etc.) in U
 and allows you to pause/resume the service.
 It works with Ubuntu 14.04 Trusty Tahr and should work with other versions.
 
+Languages:
+----------
+indicator-meocloud interface in available in English, but can be translated very easily: 
+you only have to edit indicator-meocloud.py and change a few strings! 
+A French translation is put as example in the same file.
 
 Installation:
 -------------
