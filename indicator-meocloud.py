@@ -6,8 +6,8 @@
 #	demarre automatiquement meocloud
 #	affiche marche/arret/synchronisation en cours
 # matefin
-# 2014-05-22
-# v0.10.28m
+# 2014-05-27
+# v0.10.29c
 
 # d'apres http://linux.leunen.com/?p=933
 # https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators
@@ -29,6 +29,27 @@ import tkMessageBox as mbox	# boite de dialogue
     
 class IndicatorMEO:
   def __init__(self):
+
+    #-------------------------------------------------
+    # chaines selon la langue (traduction)
+    #-------------------------------------------------  
+    # decommentez les lignes des langues
+    
+    # French
+    open_folder = "Ouvrir le dossier MEOCloud"
+    open_page = "Ouvrir la page web MEOCloud"
+    sync_pause = "Pause synchro"
+    sync_resume = "Reprise synchro"
+    last_notifications = "Dernières notifications"
+    show_status = "Status"
+    show_help = "Aide (ligne de commande)"
+    syncing = 'Synchro en cours...'
+
+
+    # English
+    
+
+
 
     #-------------------------------------------------
     # creer le menu
@@ -86,13 +107,13 @@ class IndicatorMEO:
     self.sep1.show()
 
     self.item5 = gtk.MenuItem()
-    self.item5.set_label("Ouvrir le dossier MEOCloud")
+    self.item5.set_label(open_folder)
     self.item5.connect("activate", self.meocloud_dir)
     self.menu.append(self.item5)
     self.item5.show()
 
     self.item6 = gtk.MenuItem()
-    self.item6.set_label("Ouvrir la page web MEOCloud")
+    self.item6.set_label(open_page)
     self.item6.connect("activate", self.meocloud_web)
     self.menu.append(self.item6)
     self.item6.show()
@@ -104,7 +125,7 @@ class IndicatorMEO:
     
      # pause/reprise
     self.item3 = gtk.MenuItem()
-    self.item3.set_label("Pause synchro")
+    self.item3.set_label(synch_pause)
     self.item3.connect("activate", self.meocloud_pause)
     self.menu.append(self.item3)
     self.item3.show()
@@ -115,19 +136,19 @@ class IndicatorMEO:
     self.sep3.show()
     
     self.item4 = gtk.MenuItem()
-    self.item4.set_label("Dernières notifications")
+    self.item4.set_label(last_notifications)
     self.item4.connect("activate", self.meocloud_notif)
     self.menu.append(self.item4)
     self.item4.show()
 
     self.item6 = gtk.MenuItem()
-    self.item6.set_label("Status")
+    self.item6.set_label(show_status)
     self.item6.connect("activate", self.meocloud_status)
     self.menu.append(self.item6)
     self.item6.show()
     
     self.item7 = gtk.MenuItem()
-    self.item7.set_label("Aide - ligne de commande")
+    self.item7.set_label(show_help)
     self.item7.connect("activate", self.meocloud_help)
     self.menu.append(self.item7)
     self.item7.show()
@@ -167,7 +188,7 @@ class IndicatorMEO:
       os.system("meocloud resume")
       self.ind.set_status(appindicator.STATUS_ACTIVE)
       icon_type = "active"
-      self.item3.set_label("Pause synchro")
+      self.item3.set_label(sync_pause)
     else:
       os.system("meocloud pause")
       indicator.ind.set_attention_icon("meocloud-paused")
@@ -180,13 +201,13 @@ class IndicatorMEO:
     global icon_type
     status = os.popen("meocloud not", "r").read()
     print status
-    self.window_info("Dernières notifications", status)
+    self.window_info(last_notifications, status)
    
   def meocloud_status (self, bidon):
     global icon_type
     status = os.popen("meocloud status", "r").read()
     print status 
-    self.window_info("Status", status)
+    self.window_info(show_status, status)
     # metre a jour affichage (et demarrer)
     self.displayupdate(status)
 
@@ -194,7 +215,7 @@ class IndicatorMEO:
     global icon_type
     status = os.popen("meocloud -h", "r").read()
     print status
-    self.window_info("Aide - ligne de commande", status)
+    self.window_info(show_help, status)
 
     
   def displayupdate (self, mystatus):
@@ -209,7 +230,7 @@ class IndicatorMEO:
     if cherche in mystatus:
       for line in lines:    
         if cherche in line:
-          indicator.item8.set_label('Synchro en cours...')
+          indicator.item8.set_label()
           self.item8.show()
     else:
       cherche = 'Status: PAUSED'
