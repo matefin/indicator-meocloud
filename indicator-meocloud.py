@@ -6,10 +6,10 @@
 #	demarre automatiquement meocloud
 #	affiche marche/arret/synchronisation en cours
 # matefin
-# 2014-05-27
-# v0.10.29c
+# 2014-05-29
+# v0.10.30m
 
-# d'apres http://linux.leunen.com/?p=933
+# http://linux.leunen.com/?p=933
 # https://wiki.ubuntu.com/DesktopExperienceTeam/ApplicationIndicators
 # http://ubuntuforums.org/showthread.php?t=2056296
 # http://zetcode.com/gui/pygtk/menus/
@@ -36,6 +36,7 @@ class IndicatorMEO:
     # decommentez les lignes des langues
     
     # French
+    filling = filling
     open_folder = "Ouvrir le dossier MEOCloud"
     open_page = "Ouvrir la page web MEOCloud"
     sync_pause = "Pause synchro"
@@ -43,8 +44,8 @@ class IndicatorMEO:
     last_notifications = "Dernières notifications"
     show_status = "Status"
     show_help = "Aide (ligne de commande)"
-    syncing = 'Synchro en cours...'
-
+    show_syncing = "Synchro en cours..."
+    show_paused = "En pause (arrêt synchro)"
 
     # English
     
@@ -87,17 +88,17 @@ class IndicatorMEO:
     self.item2.show()
 
     self.item8 = gtk.MenuItem()
-    self.item8.set_label("---")
+    self.item8.set_label(filling)
     self.menu.append(self.item8)
     self.item8.hide()
 
     self.item9 = gtk.MenuItem()
-    self.item9.set_label("---")
+    self.item9.set_label(filling)
     self.menu.append(self.item9)
     self.item9.hide()
  
     self.item10 = gtk.MenuItem()
-    self.item10.set_label("---")
+    self.item10.set_label(filling)
     self.menu.append(self.item10)
     self.item10.hide()
    
@@ -230,17 +231,17 @@ class IndicatorMEO:
     if cherche in mystatus:
       for line in lines:    
         if cherche in line:
-          indicator.item8.set_label()
+          indicator.item8.set_label(show_syncing)
           self.item8.show()
     else:
       cherche = 'Status: PAUSED'
       if cherche in mystatus:
         for line in lines:    
           if cherche in line:
-            indicator.item8.set_label('En pause (arrêt synchro)')
+            indicator.item8.set_label(show_paused)
             self.item8.show()
       else:
-        indicator.item8.set_label("---")
+        indicator.item8.set_label(filling)
         self.item8.hide()
     # mettre a jour l'affichage de l'upload
     cherche = 'Uploading '
@@ -250,7 +251,7 @@ class IndicatorMEO:
           indicator.item9.set_label(line)
           self.item9.show()
     else:
-      indicator.item9.set_label("---")
+      indicator.item9.set_label(filling)
       self.item9.hide()
     # mettre a jour l'affichage du download
     cherche = 'Downloading '
@@ -260,7 +261,7 @@ class IndicatorMEO:
           indicator.item10.set_label(line)
           self.item10.show()
     else:
-      indicator.item10.set_label("---")
+      indicator.item10.set_label(filling)
       self.item10.hide()
     #
     # changer l'icone selon le status
