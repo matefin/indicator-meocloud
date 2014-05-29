@@ -36,17 +36,17 @@ class IndicatorMEO:
     # decommentez les lignes des langues
     
     # French
-    filling = filling
+    filling = "---"
     open_folder = "Ouvrir le dossier MEOCloud"
     open_page = "Ouvrir la page web MEOCloud"
-    sync_pause = "Pause synchro"
-    sync_resume = "Reprise synchro"
-    last_notifications = "Dernières notifications"
+    do_pause = "Pause synchro"
+    do_resume = "Reprise synchro"
+    show_notifs = "Dernières notifications"
     show_status = "Status"
     show_help = "Aide (ligne de commande)"
-    show_syncing = "Synchro en cours..."
-    show_paused = "En pause (arrêt synchro)"
-
+    info_syncing = "Synchro en cours..."
+    info_paused = "En pause (arrêt synchro)"
+    
     # English
     
 
@@ -126,7 +126,7 @@ class IndicatorMEO:
     
      # pause/reprise
     self.item3 = gtk.MenuItem()
-    self.item3.set_label(synch_pause)
+    self.item3.set_label(do_pause)
     self.item3.connect("activate", self.meocloud_pause)
     self.menu.append(self.item3)
     self.item3.show()
@@ -137,7 +137,7 @@ class IndicatorMEO:
     self.sep3.show()
     
     self.item4 = gtk.MenuItem()
-    self.item4.set_label(last_notifications)
+    self.item4.set_label(show_notifs)
     self.item4.connect("activate", self.meocloud_notif)
     self.menu.append(self.item4)
     self.item4.show()
@@ -189,20 +189,20 @@ class IndicatorMEO:
       os.system("meocloud resume")
       self.ind.set_status(appindicator.STATUS_ACTIVE)
       icon_type = "active"
-      self.item3.set_label(sync_pause)
+      self.item3.set_label(do_pause)
     else:
       os.system("meocloud pause")
       indicator.ind.set_attention_icon("meocloud-paused")
       self.ind.set_status(appindicator.STATUS_ATTENTION)
       icon_type = "attention"
-      self.item3.set_label("Reprise synchro")
+      self.item3.set_label(do_resume)
 
 
   def meocloud_notif (self, bidon):
     global icon_type
     status = os.popen("meocloud not", "r").read()
     print status
-    self.window_info(last_notifications, status)
+    self.window_info(show_notifs, status)
    
   def meocloud_status (self, bidon):
     global icon_type
@@ -231,14 +231,14 @@ class IndicatorMEO:
     if cherche in mystatus:
       for line in lines:    
         if cherche in line:
-          indicator.item8.set_label(show_syncing)
+          indicator.item8.set_label(info_syncing)
           self.item8.show()
     else:
       cherche = 'Status: PAUSED'
       if cherche in mystatus:
         for line in lines:    
           if cherche in line:
-            indicator.item8.set_label(show_paused)
+            indicator.item8.set_label(info_paused)
             self.item8.show()
       else:
         indicator.item8.set_label(filling)
@@ -270,20 +270,20 @@ class IndicatorMEO:
       indicator.ind.set_attention_icon("meocloud-updating")
       self.ind.set_status(appindicator.STATUS_ATTENTION)
       icon_type = "attention"
-      self.item3.set_label("Pause synchro")
+      self.item3.set_label(do_pause)
     else:
       cherche = 'Status: PAUSED'
       if cherche in mystatus:
         self.ind.set_attention_icon("meocloud-paused")
         self.ind.set_status(appindicator.STATUS_ATTENTION)
         icon_type = "attention"
-        self.item3.set_label("Reprise synchro")
+        self.item3.set_label(do_resume)
       else:
         cherche = 'Status: IDLE'
         if cherche in mystatus:
           self.ind.set_status(appindicator.STATUS_ACTIVE)
           icon_type = "active"
-          self.item3.set_label("Pause synchro")
+          self.item3.set_label(do_pause)
         else:
           # si meocloud n'est pas demarre : le demarrer
           cherche='not seem to be running'
@@ -292,13 +292,13 @@ class IndicatorMEO:
             self.ind.set_status(appindicator.STATUS_ATTENTION)
             icon_type = "attention"
             os.system("meocloud start")
-            self.item3.set_label("Pause synchro")
+            self.item3.set_label(do_pause)
           else:
             # erreur
             indicator.ind.set_attention_icon("meocloud-error")
             self.ind.set_status(appindicator.STATUS_ATTENTION)
             icon_type = "attention"
-            self.item3.set_label("Pause synchro")
+            self.item3.set_label(do_pause)
 
            
   def checkmeocloud (bidon):
