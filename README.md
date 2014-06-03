@@ -30,6 +30,7 @@ It works with Ubuntu 14.04 Trusty Tahr and should work with other versions.
 
 Languages:
 ----------
+WORK IN PROGRESS
 indicator-meocloud interface in available in English, but can be translated very easily: 
 you only have to edit indicator-meocloud.py and change a few strings! 
 A French translation is put as example in the same file.
